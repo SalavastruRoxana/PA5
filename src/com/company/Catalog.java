@@ -20,7 +20,7 @@ public class Catalog  implements Serializable {
 
     public Document findById(String id) {
         for (Document doc : documents) {
-            if (doc.getId().equals(id)) {
+            if (doc.getId().compareTo(id) == 0 ) {
                 return doc;
             }
         }
@@ -29,5 +29,14 @@ public class Catalog  implements Serializable {
 
     public String getPath() {
         return path;
+    }
+
+    @Override
+    public String toString() {
+        return "Catalog{" +
+                "name='" + name + '\'' +
+                ", path='" + path + '\'' +
+                ", documents=" + documents +
+                '}';
     }
 }
